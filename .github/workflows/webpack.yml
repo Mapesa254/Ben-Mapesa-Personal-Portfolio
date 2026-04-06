@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: CI Build
 
 on:
   push:
@@ -25,5 +25,4 @@ jobs:
     - name: Build
       run: |
         npm ci
-        npm i -D webpack-cli
-        npx webpack --mode production
+        npm run build
