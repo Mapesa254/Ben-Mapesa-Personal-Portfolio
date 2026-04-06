@@ -1,0 +1,16 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import "./theme.css";
+@import "./portfolio.css";
+
+@layer components {
+  #navbar.scrolled {
+    @apply bg-[#f0f4ff]/80 dark:bg-[#05050f]/75 backdrop-blur-xl border-b border-indigo-500/10 dark:border-white/5;
+  }
+}
+
+@layer base {
+  body.portfolio-root {
+    @apply bg-[#eef2ff] dark:bg-[#05050f] text-[#0f0a2e] dark:text-[#f0f0ff] transition-colors duration-700;
+  }
+}

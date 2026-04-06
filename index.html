@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Personal Portfolio UI</title>
+</head>
+
+<body class="portfolio-root min-h-screen">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="dist/assets/logo.png" target="_blank" rel="noopener noreferrer"
+        class="flex items-center gap-2 group transform hover:scale-105 transition-transform">
+        <div class="w-10 h-10 flex items-center justify-center shrink-0">
+          <img src="dist/assets/logo.png" alt="Logo" class="w-16 h-16 object-contain hidden dark:block" />
+          <img src="dist/assets/Black Logo.png" alt="Logo" class="w-16 h-16 object-contain block dark:hidden" />
+        </div>
+        <span class="text-sm tracking-widest text-[#1e1b4b] dark:text-[#f0f0ff]"
+          style="font-family: var(--pf-font-heading);">
+          MAPESARTS<span class="gradient-text">.</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#skills"
+          class="px-4 py-2 rounded-lg text-sm transition-all duration-300 relative group text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white/90"
+          style="font-family: var(--pf-font-body);">Skills
+          <span
+            class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-1/2 transition-all duration-300 rounded-full nav-underline"></span>
+        </a>
+        <a href="#projects"
+          class="px-4 py-2 rounded-lg text-sm transition-all duration-300 relative group text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white/90"
+          style="font-family: var(--pf-font-body);">Projects
+          <span
+            class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-1/2 transition-all duration-300 rounded-full nav-underline"></span>
+        </a>
+        <a href="#about"
+          class="px-4 py-2 rounded-lg text-sm transition-all duration-300 relative group text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white/90"
+          style="font-family: var(--pf-font-body);">About
+          <span
+            class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-1/2 transition-all duration-300 rounded-full nav-underline"></span>
+        </a>
+        <a href="#tools"
+          class="px-4 py-2 rounded-lg text-sm transition-all duration-300 relative group text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white/90"
+          style="font-family: var(--pf-font-body);">Tools
+          <span
+            class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-1/2 transition-all duration-300 rounded-full nav-underline"></span>
+        </a>
+        <a href="#contact"
+          class="px-4 py-2 rounded-lg text-sm transition-all duration-300 relative group text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white/90"
+          style="font-family: var(--pf-font-body);">Contact
+          <span
+            class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-1/2 transition-all duration-300 rounded-full nav-underline"></span>
+        </a>
+      </div>
+
+      <!-- Right Side: Theme Toggle + CTA + Mobile Menu -->
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle"
+          class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 bg-white/70 border border-indigo-100 text-indigo-600 hover:bg-white/90 dark:bg-white/10 dark:border-white/10 dark:text-yellow-300 dark:hover:bg-white/20 transform hover:scale-105 backdrop-blur-md">
+          <span id="theme-icon"></span>
+        </button>
+
+        <a href="#contact"
+          class="hidden md:flex items-center gap-2 px-5 py-2 rounded-xl text-sm text-white transition-all duration-300 transform hover:scale-105 nav-cta"
+          style="font-family: var(--pf-font-body);">Hire Me</a>
+
+        <button id="mobile-menu-btn"
+          class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center bg-white/70 border border-indigo-100 text-slate-700 dark:bg-white/10 dark:border-white/10 dark:text-white/80 backdrop-blur-md transform hover:scale-95">
+          <i data-lucide="menu" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu"
+    class="hidden fixed top-16 left-4 right-4 z-40 rounded-2xl overflow-hidden bg-white/95 border border-indigo-500/15 shadow-2xl backdrop-blur-xl dark:bg-[#0a0a19]/95 dark:border-white/10 p-4">
+    <div class="space-y-1">
+      <a href="#skills"
+        class="block px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-indigo-50/80 dark:text-white/70 dark:hover:text-white dark:hover:bg-white/10">Skills</a>
+      <a href="#projects"
+        class="block px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-indigo-50/80 dark:text-white/70 dark:hover:text-white dark:hover:bg-white/10">Projects</a>
+      <a href="#about"
+        class="block px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-indigo-50/80 dark:text-white/70 dark:hover:text-white dark:hover:bg-white/10">About</a>
+      <a href="#tools"
+        class="block px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-indigo-50/80 dark:text-white/70 dark:hover:text-white dark:hover:bg-white/10">Tools</a>
+      <a href="#contact"
+        class="block px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-indigo-50/80 dark:text-white/70 dark:hover:text-white dark:hover:bg-white/10">Contact</a>
+      <a href="#contact" class="block px-4 py-3 rounded-xl text-sm text-center text-white mt-2 nav-cta">Hire Me</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 hero-grid-light dark:hero-grid-dark"></div>
+
+      <!-- Animated Orbs -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute rounded-full blur-3xl orb-1 orb-purple"></div>
+        <div class="absolute rounded-full blur-3xl orb-2 orb-violet"></div>
+        <div class="absolute rounded-full blur-3xl orb-3 orb-cyan"></div>
+        <div class="absolute rounded-full blur-2xl orb-4 orb-pink"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+        <!-- Name -->
+        <h1 class="reveal-on-scroll delay-100 mb-4 hero-name"
+          style="font-family: var(--pf-font-heading);">
+          BENJAMIN <span class="gradient-text dark:filter-drop-shadow">MAPESA</span>
+        </h1>
+
+        <!-- Animated Role (text content swapped by TS) -->
+        <div class="reveal-on-scroll delay-200 flex items-center justify-center gap-3 mb-6 h-10">
+          <div class="h-px flex-1 max-w-24 hero-line-left"></div>
+          <div class="overflow-hidden h-8 flex items-center">
+            <span id="hero-role"
+              style="font-family: var(--pf-font-heading); font-size: clamp(0.8rem, 2.5vw, 1.1rem); letter-spacing: 0.15em;"
+              class="gradient-text whitespace-nowrap transition-all duration-300">Game Developer</span>
+          </div>
+          <div class="h-px flex-1 max-w-24 hero-line-right"></div>
+        </div>
+
+        <!-- Bio -->
+        <p class="reveal-on-scroll delay-300 max-w-2xl mx-auto mb-10 leading-relaxed text-[#1e1b4b]/65 dark:text-[#f0f0ff]/60"
+          style="font-family: var(--pf-font-body); font-size: clamp(0.95rem, 2vw, 1.1rem);">
+          Crafting immersive worlds, designing impactful visuals, and turning data into insights. A triple-threat
+          creative bridging code, design, and intelligence.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="reveal-on-scroll delay-400 flex flex-wrap items-center justify-center gap-4 mb-16">
+          <a href="#projects"
+            class="flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm text-white btn-primary-light dark:btn-primary-dark transform hover:scale-105 transition-transform"
+            style="font-family: var(--pf-font-body);">
+            View Projects
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#contact"
+            class="flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm btn-secondary-light dark:btn-secondary-dark text-indigo-600 dark:text-white/90 transform hover:scale-105 transition-transform"
+            style="font-family: var(--pf-font-body);">
+            Get In Touch
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="reveal-on-scroll delay-500 flex flex-wrap justify-center gap-8 md:gap-16">
+          <div class="text-center">
+            <div class="gradient-text font-bold hero-stat-num"
+              style="font-family: var(--pf-font-heading);">5+</div>
+            <div class="text-xs mt-1 text-slate-800/50 dark:text-[#f0f0ff]/40 tracking-wider">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="gradient-text font-bold hero-stat-num"
+              style="font-family: var(--pf-font-heading);">42</div>
+            <div class="text-xs mt-1 text-slate-800/50 dark:text-[#f0f0ff]/40 tracking-wider">Projects Shipped</div>
+          </div>
+          <div class="text-center">
+            <div class="gradient-text font-bold hero-stat-num"
+              style="font-family: var(--pf-font-heading);">3</div>
+            <div class="text-xs mt-1 text-slate-800/50 dark:text-[#f0f0ff]/40 tracking-wider">Core Disciplines</div>
+          </div>
+          <div class="text-center">
+            <div class="gradient-text font-bold hero-stat-num"
+              style="font-family: var(--pf-font-heading);">18</div>
+            <div class="text-xs mt-1 text-slate-800/50 dark:text-[#f0f0ff]/40 tracking-wider">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#skills"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity animate-bounce">
+        <span class="text-[0.6rem] tracking-widest text-[#1e1b4b]/35 dark:text-[#f0f0ff]/30"
+          style="font-family: var(--pf-font-heading);">SCROLL</span>
+        <i data-lucide="chevron-down" class="w-5 h-5 text-[#1e1b4b]/30 dark:text-[#f0f0ff]/30"></i>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         SKILLS SECTION
+    ============================================================ -->
+    <section id="skills" class="relative py-28 px-6 overflow-hidden section-skills-bg">
+      <div class="absolute top-0 left-0 right-0 h-px section-divider-light dark:section-divider"></div>
+
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-on-scroll">
+          <div
+            class="inline-block text-xs tracking-widest mb-4 px-3 py-1 rounded-full section-label text-[#6366f1] bg-indigo-500/10 border border-indigo-500/15 dark:text-indigo-300 dark:border-indigo-500/20">
+            EXPERTISE
+          </div>
+          <h2 class="mb-4 text-[#0f0a2e] dark:text-[#f0f0ff]"
+            style="font-family: var(--pf-font-heading); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em;">
+            Core <span class="gradient-text">Disciplines</span>
+          </h2>
+          <p class="max-w-xl mx-auto text-sm text-slate-800/55 dark:text-white/50 leading-relaxed"
+            style="font-family: var(--pf-font-body);">
+            Three pillars of creative mastery — each deeply integrated, all working in harmony.
+          </p>
+        </div>
+
+        <!-- Skills Grid (populated by skills.ts) -->
+        <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <!-- Cards injected by src/js/skills.ts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION
+    ============================================================ -->
+    <section id="projects" class="relative py-28 px-6 overflow-hidden section-projects-bg">
+      <div class="absolute top-0 left-0 right-0 h-px section-divider-light dark:section-divider"></div>
+
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center flex flex-col items-center mb-12 reveal-on-scroll">
+          <div
+            class="inline-block text-xs tracking-widest mb-4 px-3 py-1 rounded-full section-label text-[#6366f1] bg-indigo-500/10 border border-indigo-500/15 dark:text-indigo-300 dark:border-indigo-500/20">
+            PORTFOLIO
+          </div>
+          <h2 class="mb-4 text-[#0f0a2e] dark:text-[#f0f0ff]"
+            style="font-family: var(--pf-font-heading); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em;">
+            Featured <span class="gradient-text">Projects</span>
+          </h2>
+          <p class="max-w-xl mx-auto mb-8 text-sm text-slate-800/55 dark:text-white/50 leading-relaxed"
+            style="font-family: var(--pf-font-body);">
+            A curated selection of works spanning games, designs, and intelligent systems.
+          </p>
+
+          <!-- Filter Tabs (state managed by projects.ts) -->
+          <div
+            class="inline-flex relative items-center gap-1 p-1 rounded-xl bg-white/70 border border-indigo-500/15 shadow-sm dark:bg-white/5 dark:border-white/10">
+            <button class="project-filter-btn relative px-4 py-2 rounded-lg text-xs transition-all text-white"
+              style="font-family: var(--pf-font-heading); letter-spacing: 0.08em;" data-filter="All">
+              <div class="active-indicator absolute inset-0 rounded-lg shadow-lg filter-active-bg"></div>
+              <span class="relative z-10">All</span>
+            </button>
+            <button
+              class="project-filter-btn relative px-4 py-2 rounded-lg text-xs transition-all text-slate-800/50 dark:text-white/45 hover:text-indigo-500 dark:hover:text-white"
+              style="font-family: var(--pf-font-heading); letter-spacing: 0.08em;" data-filter="Game Dev">
+              <div class="active-indicator hidden absolute inset-0 rounded-lg shadow-lg filter-active-bg"></div>
+              <span class="relative z-10">Game Dev</span>
+            </button>
+            <button
+              class="project-filter-btn relative px-4 py-2 rounded-lg text-xs transition-all text-slate-800/50 dark:text-white/45 hover:text-indigo-500 dark:hover:text-white"
+              style="font-family: var(--pf-font-heading); letter-spacing: 0.08em;" data-filter="Design">
+              <div class="active-indicator hidden absolute inset-0 rounded-lg shadow-lg filter-active-bg"></div>
+              <span class="relative z-10">Design</span>
+            </button>
+            <button
+              class="project-filter-btn relative px-4 py-2 rounded-lg text-xs transition-all text-slate-800/50 dark:text-white/45 hover:text-indigo-500 dark:hover:text-white"
+              style="font-family: var(--pf-font-heading); letter-spacing: 0.08em;" data-filter="Data Science">
+              <div class="active-indicator hidden absolute inset-0 rounded-lg shadow-lg filter-active-bg"></div>
+              <span class="relative z-10">Data Science</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid (populated by projects.ts) -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Cards injected by src/js/projects.ts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+    <section id="about" class="relative py-28 px-6 overflow-hidden section-about-bg">
+      <div class="absolute top-0 left-0 right-0 h-px section-divider-light dark:section-divider"></div>
+
+      <!-- Section Header -->
+      <div class="max-w-6xl mx-auto text-center mb-16 reveal-on-scroll">
+        <div
+          class="inline-block text-xs tracking-widest mb-4 px-3 py-1 rounded-full section-label text-[#6366f1] bg-indigo-500/10 border border-indigo-500/15 dark:text-indigo-300 dark:border-indigo-500/20">
+          MY STORY
+        </div>
+        <h2 class="text-[#0f0a2e] dark:text-[#f0f0ff]"
+          style="font-family: var(--pf-font-heading); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em;">
+          About <span class="gradient-text">Me</span>
+        </h2>
+      </div>
+
+      <!-- About Content Grid -->
+      <div id="about-wrapper" class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Left Column: Photo + Highlights + Download CV -->
+        <div class="reveal-on-scroll">
+          <div class="relative mb-8 inline-block">
+            <div
+              class="relative w-64 h-64 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(79,70,229,0.1)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] ring-1 ring-indigo-500/20">
+              <img src="dist/assets/logo.png" alt="Benjamin Mapesa" class="w-60 h-60 object-contain hidden dark:block" />
+              <img src="dist/assets/Black Logo.png" alt="Benjamin Mapesa"
+                class="w-60 h-60 object-contain block dark:hidden" />
+            </div>
+            <!-- Open-to-work badge -->
+            <div
+              class="absolute -bottom-4 -right-4 px-4 py-2.5 rounded-xl bg-white/95 dark:bg-[#0c0c1c]/90 border border-indigo-500/20 shadow-xl backdrop-blur-md animate-bounce"
+              style="animation-duration: 3s">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ade80]"></span>
+                <span class="text-xs text-[#6366f1] dark:text-[#a5b4fc]"
+                  style="font-family: var(--pf-font-heading); font-size: 0.65rem; letter-spacing: 0.1em;">OPEN TO
+                  WORK</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlight Badges -->
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div
+              class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+              <i data-lucide="award" class="text-[#6366f1] dark:text-[#a5b4fc] w-4 h-4"></i>
+              <span class="text-xs text-[#1e1b4b]/70 dark:text-[#f0f0ff]/65"
+                style="font-family: var(--pf-font-body)">3x Indie Game Award Winner</span>
+            </div>
+            <div
+              class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+              <i data-lucide="code-2" class="text-[#6366f1] dark:text-[#a5b4fc] w-4 h-4"></i>
+              <span class="text-xs text-[#1e1b4b]/70 dark:text-[#f0f0ff]/65"
+                style="font-family: var(--pf-font-body)">Open Source Contributor</span>
+            </div>
+            <div
+              class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+              <i data-lucide="calendar" class="text-[#6366f1] dark:text-[#a5b4fc] w-4 h-4"></i>
+              <span class="text-xs text-[#1e1b4b]/70 dark:text-[#f0f0ff]/65"
+                style="font-family: var(--pf-font-body)">2+ Years in Creative Design</span>
+            </div>
+            <div
+              class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+              <i data-lucide="map-pin" class="text-[#6366f1] dark:text-[#a5b4fc] w-4 h-4"></i>
+              <span class="text-xs text-[#1e1b4b]/70 dark:text-[#f0f0ff]/65"
+                style="font-family: var(--pf-font-body)">Nairobi, Kenya</span>
+            </div>
+          </div>
+
+          <!-- Download Resume -->
+          <button
+            class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm text-white transition-all transform hover:scale-105 btn-primary-light dark:btn-primary-dark"
+            style="font-family: var(--pf-font-body);">
+            <i data-lucide="download" class="w-4 h-4"></i> Download Resume
+          </button>
+        </div>
+
+        <!-- Right Column: Bio + Timeline -->
+        <div class="reveal-on-scroll delay-100">
+          <!-- Intro paragraph -->
+          <p class="mb-5 leading-relaxed text-[1rem] text-[#1e1b4b]/75 dark:text-white/70"
+            style="font-family: var(--pf-font-body)">
+            I'm <strong class="text-[#0f0a2e] dark:text-[#f0f0ff]">Benjamin Mapesa</strong>, a multi-disciplinary
+            creative technologist who lives at the intersection of code, design, and data. I believe great products are
+            born when these disciplines deeply inform each other.
+          </p>
+
+          <!-- Expanded bio (toggled by about.ts) -->
+          <div id="bio-expanded" class="overflow-hidden transition-all duration-500" style="height: 0px; opacity: 0;">
+            <p class="mb-5 leading-relaxed text-[1rem] text-[#1e1b4b]/75 dark:text-white/70"
+              style="font-family: var(--pf-font-body);">
+              My journey started with a childhood obsession with video games that evolved into a career crafting them.
+              Along the way, I discovered a love for visual storytelling through design, and an addiction to uncovering
+              hidden patterns through data science.
+            </p>
+            <p class="leading-relaxed text-[1rem] text-[#1e1b4b]/75 dark:text-white/70"
+              style="font-family: var(--pf-font-body);">
+              Today, I channel all three disciplines into building experiences that are beautiful, intelligent, and
+              deeply engaging — whether that's a game world, a brand system, or a predictive dashboard.
+            </p>
+          </div>
+
+          <!-- Read More / Less toggle (controlled by about.ts) -->
+          <button id="bio-toggle"
+            class="flex items-center gap-1.5 text-sm mb-8 transition-all text-[#6366f1] dark:text-[#a5b4fc] p-0"
+            style="font-family: var(--pf-font-heading); font-size: 0.75rem; letter-spacing: 0.1em; background:none;">
+            <span>READ MORE</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transform transition-transform"></i>
+          </button>
+
+          <!-- Career Timeline -->
+          <div class="rounded-2xl overflow-hidden bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 mt-8">
+            <div class="px-5 py-3 border-b border-indigo-500/10 dark:border-white/10">
+              <span class="text-xs section-label text-[#6366f1] dark:text-[#a5b4fc]">CAREER TIMELINE</span>
+            </div>
+            <div>
+              <div class="flex gap-4 px-5 py-4 border-b border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+                <div class="shrink-0 text-xs pt-0.5 text-[#6366f1] dark:text-[#a5b4fc] timeline-year">2024</div>
+                <div class="min-w-0">
+                  <p class="text-sm text-[#0f0a2e] dark:text-[#f0f0ff] timeline-role">Senior Creative Technologist</p>
+                  <p class="text-xs mb-1 text-[#6366f1] dark:text-indigo-300/70"
+                    style="font-family: var(--pf-font-body);">Nexus Interactive</p>
+                  <p class="text-xs leading-relaxed text-[#1e1b4b]/50 dark:text-white/45"
+                    style="font-family: var(--pf-font-body);">Lead multi-disciplinary projects bridging game development
+                    and data-driven experiences.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 px-5 py-4 border-b border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+                <div class="shrink-0 text-xs pt-0.5 text-[#6366f1] dark:text-[#a5b4fc] timeline-year">2022</div>
+                <div class="min-w-0">
+                  <p class="text-sm text-[#0f0a2e] dark:text-[#f0f0ff] timeline-role">Lead UI/UX Designer</p>
+                  <p class="text-xs mb-1 text-[#6366f1] dark:text-indigo-300/70"
+                    style="font-family: var(--pf-font-body);">Prism Studio</p>
+                  <p class="text-xs leading-relaxed text-[#1e1b4b]/50 dark:text-white/45"
+                    style="font-family: var(--pf-font-body);">Designed and shipped design systems for 12+ enterprise
+                    products used by 2M+ users.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 px-5 py-4 border-b border-indigo-500/10 dark:border-white/10 reveal-on-scroll">
+                <div class="shrink-0 text-xs pt-0.5 text-[#6366f1] dark:text-[#a5b4fc] timeline-year">2020</div>
+                <div class="min-w-0">
+                  <p class="text-sm text-[#0f0a2e] dark:text-[#f0f0ff] timeline-role">Data Scientist</p>
+                  <p class="text-xs mb-1 text-[#6366f1] dark:text-indigo-300/70"
+                    style="font-family: var(--pf-font-body);">Quantum Analytics</p>
+                  <p class="text-xs leading-relaxed text-[#1e1b4b]/50 dark:text-white/45"
+                    style="font-family: var(--pf-font-body);">Built ML models for predictive analytics, improving
+                    forecast accuracy by 38%.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 px-5 py-4 reveal-on-scroll">
+                <div class="shrink-0 text-xs pt-0.5 text-[#6366f1] dark:text-[#a5b4fc] timeline-year">2019</div>
+                <div class="min-w-0">
+                  <p class="text-sm text-[#0f0a2e] dark:text-[#f0f0ff] timeline-role">Indie Game Developer</p>
+                  <p class="text-xs mb-1 text-[#6366f1] dark:text-indigo-300/70"
+                    style="font-family: var(--pf-font-body);">Solo / Freelance</p>
+                  <p class="text-xs leading-relaxed text-[#1e1b4b]/50 dark:text-white/45"
+                    style="font-family: var(--pf-font-body);">Released 4 commercially successful indie games on Steam
+                    with 500K+ combined downloads.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TOOLS SECTION
+    ============================================================ -->
+    <section id="tools" class="relative py-28 px-6 overflow-hidden section-tools-bg">
+      <div class="absolute top-0 left-0 right-0 h-px section-divider-light dark:section-divider"></div>
+
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-on-scroll">
+          <div
+            class="inline-block text-xs tracking-widest mb-4 px-3 py-1 rounded-full section-label text-[#6366f1] bg-indigo-500/10 border border-indigo-500/15 dark:text-indigo-300 dark:border-indigo-500/20">
+            TECH STACK
+          </div>
+          <h2 class="mb-4 text-[#0f0a2e] dark:text-[#f0f0ff]"
+            style="font-family: var(--pf-font-heading); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em;">
+            Tools &amp; <span class="gradient-text">Technologies</span>
+          </h2>
+          <p class="max-w-xl mx-auto text-sm text-slate-800/55 dark:text-white/50 leading-relaxed"
+            style="font-family: var(--pf-font-body);">
+            A curated arsenal of tools mastered across game dev, design, and data science.
+          </p>
+        </div>
+
+        <!-- Tools Grid (populated by tools.ts) -->
+        <div id="tools-wrapper" class="space-y-10">
+          <!-- Categories injected by src/js/tools.ts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
+    <section id="contact" class="relative py-28 px-6 overflow-hidden section-contact-bg">
+      <div class="absolute top-0 left-0 right-0 h-px section-divider-light dark:section-divider"></div>
+
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Label -->
+        <div class="mb-16 reveal-on-scroll">
+          <div
+            class="inline-block text-xs tracking-widest mb-4 px-3 py-1 rounded-full section-label text-[#ec4899] bg-pink-500/10 border border-pink-500/15">
+            GET IN TOUCH
+          </div>
+        </div>
+
+        <!-- Contact Grid -->
+        <div id="contact-wrapper" class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+
+          <!-- Left: Info -->
+          <div class="reveal-on-scroll">
+            <h3 class="text-2xl font-bold mb-4 text-[#0f0a2e] dark:text-[#f0f0ff]"
+              style="font-family: var(--pf-font-heading);">
+              Let's <span class="gradient-text">Collaborate</span>
+            </h3>
+            <p class="mb-10 text-sm leading-relaxed text-[#1e1b4b]/60 dark:text-white/50"
+              style="font-family: var(--pf-font-body);">
+              Currently available for freelance projects and open to new opportunities. Let's create something
+              extraordinary together.
+            </p>
+
+            <!-- Contact Details -->
+            <div class="space-y-6 mb-12">
+              <div class="flex items-center gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center transition-all bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10 group-hover:border-indigo-500/30">
+                  <i data-lucide="mail" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"></i>
+                </div>
+                <div>
+                  <p class="text-xs tracking-widest text-[#1e1b4b]/50 dark:text-white/40 mb-1"
+                    style="font-family: var(--pf-font-heading);">EMAIL</p>
+                  <a href="mailto:hello@mapesarts.dev"
+                    class="text-sm font-medium transition-colors text-[#0f0a2e] hover:text-indigo-600 dark:text-white/90 dark:hover:text-indigo-400"
+                    style="font-family: var(--pf-font-body);">hello@mapesarts.dev</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center transition-all bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10 group-hover:border-indigo-500/30">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"></i>
+                </div>
+                <div>
+                  <p class="text-xs tracking-widest text-[#1e1b4b]/50 dark:text-white/40 mb-1"
+                    style="font-family: var(--pf-font-heading);">LOCATION</p>
+                  <p class="text-sm font-medium text-[#0f0a2e] dark:text-white/90"
+                    style="font-family: var(--pf-font-body);">Nairobi, Kenya</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+              <p class="text-xs tracking-widest mb-4 text-[#1e1b4b]/50 dark:text-white/40"
+                style="font-family: var(--pf-font-heading);">CONNECT</p>
+              <div class="flex gap-3">
+                <a href="#"
+                  class="w-10 h-10 rounded-lg flex items-center justify-center transition-all hover:-translate-y-1 bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 text-[#1e1b4b]/70 dark:text-white/60 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/30 dark:hover:border-indigo-400/30"
+                  aria-label="GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 rounded-lg flex items-center justify-center transition-all hover:-translate-y-1 bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 text-[#1e1b4b]/70 dark:text-white/60 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/30 dark:hover:border-indigo-400/30"
+                  aria-label="Twitter / X">
+                  <i data-lucide="twitter" class="w-4 h-4"></i>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 rounded-lg flex items-center justify-center transition-all hover:-translate-y-1 bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 text-[#1e1b4b]/70 dark:text-white/60 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/30 dark:hover:border-indigo-400/30"
+                  aria-label="LinkedIn">
+                  <i data-lucide="linkedin" class="w-4 h-4"></i>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 rounded-lg flex items-center justify-center transition-all hover:-translate-y-1 bg-white/70 dark:bg-white/5 border border-indigo-500/10 dark:border-white/10 text-[#1e1b4b]/70 dark:text-white/60 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/30 dark:hover:border-indigo-400/30"
+                  aria-label="Website">
+                  <i data-lucide="globe" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="reveal-on-scroll delay-100 relative">
+            <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full blur-3xl pointer-events-none opacity-50 dark:opacity-20 bg-indigo-500/30 dark:bg-indigo-500/40"></div>
+
+            <div
+              class="p-8 rounded-3xl relative backdrop-blur-xl bg-white/60 border border-white/50 shadow-2xl dark:bg-[#12122a]/60 dark:border-white/5 dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+
+              <!-- Success overlay (shown by contact.ts on submit) -->
+              <div id="contact-success"
+                class="hidden absolute inset-0 z-10 flex flex-col items-center justify-center rounded-3xl backdrop-blur-md bg-white/90 dark:bg-[#0c0c1c]/90">
+                <div class="rounded-full flex items-center justify-center mb-4 bg-green-50 dark:bg-green-500/20 text-green-500">
+                  <i data-lucide="check-circle" class="w-12 h-12"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-[#0f0a2e] dark:text-[#f0f0ff]"
+                  style="font-family: var(--pf-font-heading);">Message Sent!</h3>
+                <p class="text-sm text-center max-w-[250px] mb-6 text-[#1e1b4b]/60 dark:text-white/50"
+                  style="font-family: var(--pf-font-body);">Thank you for reaching out. I'll get back to you within 24
+                  hours.</p>
+                <button id="send-another-btn"
+                  class="px-6 py-2.5 rounded-xl text-sm transition-all bg-indigo-50 dark:bg-white/5 hover:bg-indigo-100 dark:hover:bg-white/10 text-indigo-600 dark:text-white/80"
+                  style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">SEND ANOTHER</button>
+              </div>
+
+              <!-- Contact Form -->
+              <form id="contact-form" class="space-y-5 relative z-0">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-xs mb-2 text-[#6366f1] dark:text-[#a5b4fc]"
+                      style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">YOUR NAME</label>
+                    <input type="text" name="name" required
+                      class="w-full px-4 py-3.5 rounded-xl text-sm transition-all focus:ring-2 focus:ring-indigo-500/50 bg-white/50 border border-indigo-100 text-[#0f0a2e] focus:bg-white dark:bg-black/20 dark:border-white/10 dark:text-white dark:focus:bg-black/40"
+                      style="font-family: var(--pf-font-body);" placeholder="John Doe">
+                  </div>
+                  <div>
+                    <label class="block text-xs mb-2 text-[#6366f1] dark:text-[#a5b4fc]"
+                      style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">EMAIL ADDRESS</label>
+                    <input type="email" name="email" required
+                      class="w-full px-4 py-3.5 rounded-xl text-sm transition-all focus:ring-2 focus:ring-indigo-500/50 bg-white/50 border border-indigo-100 text-[#0f0a2e] focus:bg-white dark:bg-black/20 dark:border-white/10 dark:text-white dark:focus:bg-black/40"
+                      style="font-family: var(--pf-font-body);" placeholder="john@example.com">
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs mb-2 mt-4 text-[#6366f1] dark:text-[#a5b4fc]"
+                    style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">PROJECT TYPE</label>
+                  <select name="project_type"
+                    class="w-full px-4 py-3.5 rounded-xl text-sm transition-all focus:ring-2 focus:ring-indigo-500/50 outline-none appearance-none bg-white/50 border border-indigo-100 text-[#0f0a2e] focus:bg-white dark:bg-black/20 dark:border-white/10 dark:text-white dark:focus:bg-black/40 cursor-pointer"
+                    style="font-family: var(--pf-font-body);">
+                    <option value="Game Development" class="text-black">Game Development</option>
+                    <option value="UI/UX Design" class="text-black">UI/UX Design</option>
+                    <option value="Data Science" class="text-black">Data Science</option>
+                    <option value="Other" class="text-black">Other Inquiry</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs mb-2 mt-4 text-[#6366f1] dark:text-[#a5b4fc]"
+                    style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">MESSAGE</label>
+                  <textarea name="message" required rows="4"
+                    class="w-full px-4 py-3.5 rounded-xl text-sm resize-none transition-all focus:ring-2 focus:ring-indigo-500/50 bg-white/50 border border-indigo-100 text-[#0f0a2e] focus:bg-white dark:bg-black/20 dark:border-white/10 dark:text-white dark:focus:bg-black/40"
+                    style="font-family: var(--pf-font-body);"
+                    placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button id="contact-submit-btn" type="submit"
+                  class="w-full py-4 mt-6 rounded-xl text-sm text-white flex items-center justify-center gap-2 group transition-all transform hover:scale-[1.02] btn-primary-light dark:btn-primary-dark"
+                  style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">
+                  <span>Send Message</span>
+                  <i data-lucide="send" class="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer
+      class="relative py-10 px-6 overflow-hidden bg-[#eef2ff] dark:bg-[#05050f] border-t border-indigo-500/10 dark:border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 flex items-center justify-center shrink-0">
+              <img src="dist/assets/logo.png" alt="Logo" class="w-7 h-7 object-contain hidden dark:block" />
+              <img src="dist/assets/Black Logo.png" alt="Logo" class="w-7 h-7 object-contain block dark:hidden" />
+            </div>
+            <span class="text-sm text-[#1e1b4b]/50 dark:text-[#f0f0ff]/50"
+              style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">MAPESARTS</span>
+          </div>
+
+          <!-- Copyright -->
+          <p class="text-xs flex items-center gap-1.5 text-[#1e1b4b]/35 dark:text-[#f0f0ff]/30"
+            style="font-family: var(--pf-font-body);">
+            &copy; 2026 Mapesarts. Crafted with <i data-lucide="heart" class="w-3 h-3 text-pink-500"></i> &amp;
+            precision.
+          </p>
+
+          <!-- Back to Top -->
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="flex items-center gap-2 text-xs transition-all hover:-translate-y-0.5 text-indigo-500 dark:text-indigo-300/50"
+            style="font-family: var(--pf-font-heading); letter-spacing: 0.1em;">
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5 mt-[-3px] animate-bounce"></i>
+            BACK TO TOP
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,511 @@
+/* ============================================================
+   Portfolio Custom Styles
+   All visual rules live here. index.html is structure-only.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Scroll & Body
+   ------------------------------------------------------------ */
+body {
+  scroll-behavior: smooth;
+}
+
+/* ------------------------------------------------------------
+   Reveal-on-scroll animation
+   (JS adds .animate-in via IntersectionObserver in main.ts)
+   ------------------------------------------------------------ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* ------------------------------------------------------------
+   Navbar
+   ------------------------------------------------------------ */
+#navbar {
+  background-color: transparent;
+}
+
+.nav-underline {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* ------------------------------------------------------------
+   Section Backgrounds
+   ------------------------------------------------------------ */
+
+/* Hero */
+#hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 60% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+    #eef2ff;
+}
+
+.dark #hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 60% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
+    #05050f;
+}
+
+/* Skills */
+.section-skills-bg {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
+    #f5f7ff;
+}
+
+.dark .section-skills-bg {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
+    #07071a !important;
+}
+
+/* Projects */
+.section-projects-bg {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 60%),
+    #f0f4ff;
+}
+
+.dark .section-projects-bg {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 60%),
+    #050510 !important;
+}
+
+/* About */
+.section-about-bg {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 60%),
+    #f5f7ff;
+}
+
+.dark .section-about-bg {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+    #07071a !important;
+}
+
+/* Tools */
+.section-tools-bg {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
+    #f0f4ff;
+}
+
+.dark .section-tools-bg {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.07) 0%, transparent 60%),
+    #050510 !important;
+}
+
+/* Contact */
+.section-contact-bg {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.03) 0%, transparent 60%),
+    #f5f7ff;
+}
+
+.dark .section-contact-bg {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.04) 0%, transparent 60%),
+    #07071a !important;
+}
+
+/* ------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------ */
+.hero-name {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.hero-stat-num {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.hero-line-left {
+  height: 1px;
+  flex: 1;
+  max-width: 6rem;
+  background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.4));
+}
+
+.dark .hero-line-left {
+  background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.6));
+}
+
+.hero-line-right {
+  height: 1px;
+  flex: 1;
+  max-width: 6rem;
+  background: linear-gradient(to right, rgba(168, 85, 247, 0.4), transparent);
+}
+
+.dark .hero-line-right {
+  background: linear-gradient(to right, rgba(168, 85, 247, 0.6), transparent);
+}
+
+/* ------------------------------------------------------------
+   Animated Orbs (Hero)
+   ------------------------------------------------------------ */
+.orb-purple {
+  width: 500px;
+  height: 500px;
+  left: -10%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+}
+
+.orb-violet {
+  width: 600px;
+  height: 600px;
+  right: -15%;
+  top: 20%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+}
+
+.orb-cyan {
+  width: 400px;
+  height: 400px;
+  left: 40%;
+  bottom: 5%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+}
+
+.orb-pink {
+  width: 250px;
+  height: 250px;
+  left: 60%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.10) 0%, transparent 70%);
+}
+
+/* ------------------------------------------------------------
+   Filter Active Indicator (Projects)
+   ------------------------------------------------------------ */
+.filter-active-bg {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+/* ------------------------------------------------------------
+   Timeline (About)
+   ------------------------------------------------------------ */
+.timeline-year {
+  font-family: var(--pf-font-heading);
+  min-width: 2.5rem;
+  letter-spacing: 0.05em;
+}
+
+.timeline-role {
+  font-family: var(--pf-font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ------------------------------------------------------------
+   CSS Custom Properties
+   ------------------------------------------------------------ */
+
+:root {
+  --pf-font-heading: 'Orbitron', sans-serif;
+  --pf-font-body: 'Space Grotesk', sans-serif;
+}
+
+/* Base font override for portfolio */
+.portfolio-root {
+  font-family: var(--pf-font-body);
+}
+
+.portfolio-root h1,
+.portfolio-root h2,
+.portfolio-root h3 {
+  font-family: var(--pf-font-heading);
+}
+
+/* Glassmorphism */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 40px rgba(99, 102, 241, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-light {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glowing buttons */
+.btn-primary-dark {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-dark:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.6), 0 0 60px rgba(168, 85, 247, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-primary-light {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-light:hover {
+  box-shadow: 0 6px 30px rgba(79, 70, 229, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-dark {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.btn-secondary-light {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(79, 70, 229, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-light:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(79, 70, 229, 0.6);
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.15);
+}
+
+/* Animated background */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(20px) scale(0.95); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orb-1 { animation: float 8s ease-in-out infinite; }
+.orb-2 { animation: floatReverse 10s ease-in-out infinite 1s; }
+.orb-3 { animation: float 12s ease-in-out infinite 2s; }
+.orb-4 { animation: floatReverse 9s ease-in-out infinite 0.5s; }
+
+/* Scrollbar */
+.portfolio-root::-webkit-scrollbar {
+  width: 6px;
+}
+.portfolio-root::-webkit-scrollbar-track {
+  background: transparent;
+}
+.portfolio-root::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #a855f7);
+  border-radius: 3px;
+}
+
+/* Grid overlay */
+.hero-grid-dark {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-grid-light {
+  background-image: 
+    linear-gradient(rgba(79, 70, 229, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Skill card hover glow */
+.skill-card-game:hover {
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.25), 0 0 0 1px rgba(168, 85, 247, 0.2);
+}
+
+.skill-card-design:hover {
+  box-shadow: 0 20px 60px rgba(236, 72, 153, 0.25), 0 0 0 1px rgba(236, 72, 153, 0.2);
+}
+
+.skill-card-data:hover {
+  box-shadow: 0 20px 60px rgba(6, 182, 212, 0.25), 0 0 0 1px rgba(6, 182, 212, 0.2);
+}
+
+.skill-card-add:hover {
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+/* Typing cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  animation: blink 1s infinite;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4), transparent);
+}
+
+.section-divider-light {
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.3), rgba(124, 58, 237, 0.3), transparent);
+}
+
+/* Input glass */
+.input-glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s;
+}
+
+.input-glass-dark::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.input-glass-dark:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  outline: none;
+}
+
+.input-glass-light {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(79, 70, 229, 0.15);
+  color: #1e1b4b;
+  transition: all 0.3s;
+}
+
+.input-glass-light::placeholder {
+  color: rgba(30, 27, 75, 0.3);
+}
+
+.input-glass-light:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(79, 70, 229, 0.4);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  outline: none;
+}
+
+/* Navbar glass */
+.navbar-glass-dark {
+  background: rgba(5, 5, 15, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar-glass-light {
+  background: rgba(240, 244, 255, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.12);
+}
+
+/* Project card */
+.project-card-img {
+  transition: transform 0.5s ease;
+}
+.project-card:hover .project-card-img {
+  transform: scale(1.08);
+}
+
+/* Tag pill */
+.tag-pill-dark {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+}
+
+.tag-pill-light {
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: #4f46e5;
+}
+
+/* Scroll reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--pf-font-heading);
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+/* Star particle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
