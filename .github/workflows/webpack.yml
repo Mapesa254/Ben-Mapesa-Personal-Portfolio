@@ -24,6 +24,6 @@ jobs:
 
     - name: Build
       run: |
-        npm audit fix
-        npx webpack
-        npm run dev
+        npm ci
+        npm i -D webpack-cli
+        npx webpack --mode production
