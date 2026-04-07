@@ -70,13 +70,21 @@ themeToggle?.addEventListener('click', () => {
 
 // Scroll functionality (Navbar)
 const navbar = document.getElementById('navbar');
+let isNavScrolling = false;
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-        navbar?.classList.add('scrolled');
-    } else {
-        navbar?.classList.remove('scrolled');
+    if (!isNavScrolling) {
+        window.requestAnimationFrame(() => {
+            if (window.scrollY > 20) {
+                navbar?.classList.add('scrolled');
+            } else {
+                navbar?.classList.remove('scrolled');
+            }
+            isNavScrolling = false;
+        });
+        isNavScrolling = true;
     }
-});
+}, { passive: true });
 
 // Mobile menu toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
